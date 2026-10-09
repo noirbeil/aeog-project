@@ -1,0 +1,220 @@
+/* src/components/ProjectList.css */
+
+.pl-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Поиск ── */
+.pl-search {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pl-search input {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(120, 90, 160, 0.1);
+  font-size: 14px;
+  color: #3d3050;
+  outline: none;
+  transition: box-shadow 0.2s;
+  flex: 1;
+  min-width: 150px;
+}
+
+.pl-search input[type="date"] {
+  flex: 0 0 160px;
+  cursor: pointer;
+}
+
+.pl-search input:focus {
+  box-shadow: 0 0 0 3px rgba(107, 79, 138, 0.15);
+}
+
+.pl-search button {
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: none;
+  background: #6b4f8a;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.pl-search button:hover:not(:disabled) {
+  background: #7d5fa0;
+  transform: translateY(-1px);
+}
+
+.pl-search button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Счётчик и ошибка ── */
+.pl-count {
+  margin: 0;
+  font-size: 13px;
+  color: #8d82a3;
+}
+
+.pl-error {
+  margin: 0;
+  padding: 10px 16px;
+  background: rgba(220, 80, 100, 0.09);
+  border: 1px solid rgba(220, 80, 100, 0.25);
+  border-radius: 12px;
+  color: #b84060;
+  font-size: 13px;
+}
+
+.pl-loading {
+  text-align: center;
+  color: #8d82a3;
+  padding: 40px 0;
+  font-size: 15px;
+}
+
+/* ── Сетка карточек ── */
+.pl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ── Карточка ── */
+.pl-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 6px 20px rgba(120, 90, 160, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.pl-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(107, 79, 138, 0.2);
+}
+
+.pl-card-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d2040;
+}
+
+.pl-card-project {
+  margin: 0;
+  font-size: 13px;
+  color: #6b4f8a;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pl-card-meta {
+  margin: 0;
+  font-size: 13px;
+  color: #7a6e8a;
+}
+
+.pl-card-meta strong {
+  color: #3d3050;
+}
+
+/* ── Footer карточки (статус + эмоция) ── */
+.pl-card-footer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.pl-status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+}
+
+.pl-emotion-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(107, 79, 138, 0.12);
+  color: #6b4f8a;
+  border: 1px solid rgba(107, 79, 138, 0.2);
+}
+
+/* ── Пагинация ── */
+.pl-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.pl-pagination button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  color: #5a4878;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.pl-pagination button:hover {
+  background: rgba(107, 79, 138, 0.15);
+  transform: translateY(-1px);
+}
+
+.pl-pagination button.active {
+  background: #6b4f8a;
+  color: white;
+}
+
+.pl-pg-arrow {
+  font-size: 18px;
+  color: #6b4f8a;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.pl-pg-arrow:hover:not(.disabled) {
+  background: rgba(107, 79, 138, 0.1);
+}
+
+.pl-pg-arrow.disabled {
+  color: #c0b8d0;
+  cursor: default;
+}

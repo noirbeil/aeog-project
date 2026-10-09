@@ -1,0 +1,438 @@
+.create-container {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  animation: pageFade 0.6s ease;
+}
+
+/* ───────── TITLE ───────── */
+
+.create-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2d2040;
+
+  letter-spacing: -1px;
+
+  animation: slideDown 0.5s ease;
+}
+
+/* ───────── GRID ───────── */
+
+.create-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ───────── CARD ───────── */
+
+.create-card {
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: 24px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 10px 30px rgba(120, 90, 160, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  animation: cardIn 0.5s ease both;
+
+  overflow: hidden;
+}
+
+/* subtle glow */
+.create-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.45),
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
+
+.create-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 42px rgba(120, 90, 160, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.create-card.wide {
+  grid-column: span 2;
+}
+
+/* ───────── LABELS ───────── */
+
+.create-card label {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #5a4878;
+
+  letter-spacing: -0.1px;
+}
+
+/* ───────── INPUTS ───────── */
+
+.create-card input,
+.create-card select,
+.create-card textarea {
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border-radius: 16px;
+  border: 1px solid transparent;
+
+  outline: none;
+
+  background: rgba(240, 238, 244, 0.75);
+
+  color: #3d3050;
+  font-size: 14px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.2s ease,
+    border 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* hover */
+.create-card input:hover,
+.create-card select:hover,
+.create-card textarea:hover {
+  background: rgba(236, 233, 242, 0.95);
+}
+
+/* focus */
+.create-card input:focus,
+.create-card select:focus,
+.create-card textarea:focus {
+  background: rgba(255, 255, 255, 0.95);
+
+  transform: translateY(-1px);
+
+  border: 1px solid rgba(125, 95, 160, 0.2);
+
+  box-shadow:
+    0 0 0 5px rgba(125, 95, 160, 0.08),
+    0 8px 24px rgba(125, 95, 160, 0.10);
+}
+
+.create-card textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ───────── RANGE ───────── */
+
+.create-card input[type="range"] {
+  appearance: none;
+  height: 6px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8d6fb0,
+      #c79ad9
+    );
+
+  border-radius: 999px;
+
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.create-card input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  border: 3px solid #7d5fa0;
+
+  box-shadow:
+    0 4px 12px rgba(125, 95, 160, 0.25);
+
+  transition: transform 0.2s ease;
+}
+
+.create-card input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.08);
+}
+
+/* ───────── SMALL TEXT ───────── */
+
+.create-card small {
+  color: #9e8cb0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* ───────── EMOTIONS ───────── */
+
+.emotion-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* modern checkbox item */
+.emotion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border-radius: 14px;
+
+  background: rgba(245, 243, 248, 0.6);
+
+  font-size: 14px;
+  color: #3d3050;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.emotion-item:hover {
+  background: rgba(240, 236, 245, 0.95);
+
+  transform: translateY(-1px);
+}
+
+/* checkbox */
+.emotion-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+
+  accent-color: #7d5fa0;
+
+  cursor: pointer;
+}
+
+/* ───────── ALERTS ───────── */
+
+.create-error,
+.create-success {
+  padding: 16px 18px;
+
+  border-radius: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  animation: alertIn 0.35s ease;
+}
+
+.create-error {
+  background: rgba(255, 230, 235, 0.8);
+  color: #b2455c;
+
+  border: 1px solid rgba(255, 180, 190, 0.45);
+}
+
+.create-success {
+  background: rgba(230, 255, 240, 0.8);
+  color: #2f8a5d;
+
+  border: 1px solid rgba(170, 235, 200, 0.45);
+}
+
+/* ───────── BUTTON ───────── */
+
+.create-btn {
+  position: relative;
+  overflow: hidden;
+
+  align-self: flex-end;
+
+  padding: 15px 34px;
+
+  border: none;
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6b4f8a,
+      #7d5fa0,
+      #9474b5
+    );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px rgba(107, 79, 138, 0.24);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* shimmer */
+.create-btn::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 60%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+}
+
+.create-btn:hover::before {
+  animation: shine 0.8s ease;
+}
+
+.create-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 38px rgba(107, 79, 138, 0.34);
+
+  filter: brightness(1.03);
+}
+
+.create-btn:active {
+  transform: scale(0.98);
+}
+
+.create-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ───────── ANIMATIONS ───────── */
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -120%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+@keyframes alertIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ───────── RESPONSIVE ───────── */
+
+@media (max-width: 900px) {
+  .create-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-card.wide {
+    grid-column: span 1;
+  }
+
+  .emotion-list {
+    grid-template-columns: 1fr;
+  }
+
+  .create-btn {
+    width: 100%;
+  }
+}
